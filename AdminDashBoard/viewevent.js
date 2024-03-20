@@ -16,6 +16,7 @@ function fetchEventData() {
             <p>Price: #${event.price}</p>
             <div class="event-card .button-container">
               <button id="${event.id}" style="background-color: red; color: white;" class="button">Cancel Now</button>
+              <button id="${event.id}" style="background-color: blue; color: white;" onclick="redirectToUpdate('${event.id}')" class="button">Update</button>
               <button id="$${event.id}" class="button view-participants-btn" onclick="redirectToParticipants('${event.id}')">View Participants</button>
             </div>
           </div>
@@ -52,4 +53,9 @@ function cancelEvent(eventId) {
 function redirectToParticipants(eventId) {
   window.localStorage.setItem('eventId', eventId);
   window.location.href = "/AdminDashBoard/viewparticpant.html";
+}
+
+function redirectToUpdate(eventId) {
+  window.localStorage.setItem('eventId', eventId);
+  window.location.href = "/AdminDashBoard/updateevent.html";
 }
