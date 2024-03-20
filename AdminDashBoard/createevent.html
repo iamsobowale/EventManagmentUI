@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Event</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
+    .navbar {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar h2 {
+      margin: 0;
+    }
+    .signout-btn {
+      background-color: transparent;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .signout-btn:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .sidebar {
+      width: 250px;
+      height: 100vh;
+      background-color: #1e272e;
+      color: #fff;
+      position: fixed;
+      top: 70px; /* Adjusted to make room for the navbar */
+      left: 0;
+      overflow-y: auto;
+      padding-top: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    .sidebar ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar ul li {
+      padding: 15px 20px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+    .sidebar ul li:hover {
+      background-color: #34495e;
+    }
+    .sidebar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 70px auto 20px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      margin-top: 0;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      resize: none;
+    }
+    .form-group button {
+      background-color: #2980b9;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <h2>Create Event</h2>
+  <button class="signout-btn">Sign Out</button>
+</div>
+
+<div class="sidebar">
+  <ul>
+    <li><a href="/AdminDashBoard/admindashboard.html">Admin Dashboard</a></li>
+    <li><a href="/AdminDashBoard/viewevents.html">View Events</a></li>
+    <li><a href="#view-profile">View Profile</a></li>
+  </ul>
+</div>
+
+<div class="container">
+  <h1>Create Event</h1>
+  <form id="myform">
+    <div class="form-group">
+      <label for="eventName">Event Name:</label>
+      <input type="text" id="eventName" name="eventName" required>
+    </div>
+    <div class="form-group">
+      <label for="eventDescription">Event Description:</label>
+      <textarea id="eventDescription" name="eventDescription" rows="5" required></textarea>
+    </div>
+    <div class="form-group">
+      <label for="eventDate">Event Date:</label>
+      <input type="date" id="eventDate" name="eventDate" required>
+    </div>
+    <div class="form-group">
+      <label for="eventLocation">Event Location:</label>
+      <input type="text" id="eventLocation" name="eventLocation" required>
+    </div>
+    <div class="form-group">
+      <label for="TotalTickets">Number of tickets:</label>
+      <input type="number" id="TotalTickets" name="TotalTickets" required>
+    </div>
+    <div class="form-group">
+      <label for="eventPrice">Event Price:</label>
+      <input type="number" id="eventPrice" name="eventPrice" required>
+    </div>
+    <button onclick="create()" type="submit" >Create Event</button>
+  </form>
+</div>
+<script src="/AdminDashBoard/createevent.js"></script>
+<script src="/AdminDashBoard/logout.js"></script>
+</body>
+</html>
