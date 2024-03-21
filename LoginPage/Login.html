@@ -53,6 +53,8 @@
 						<button class="login100-form-btn" onclick="create()" type="submit" >
 							Login
 					</button>
+					<span style="margin: 0 10px;"></span>
+					<button class="login100-form-btn" onclick="redirectToCreateEvent()" type="button">Signup</button>
 					</div>
 
 				</form>
@@ -80,5 +82,11 @@
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 	<script src="js/login.js"></script>
+	<script>
+			function redirectToCreateEvent() {
+		window.location.href = '/SignUpPage/signup.html'; // Replace with your desired URL
+	}
+	</script>
+	
 </body>
 </html>
