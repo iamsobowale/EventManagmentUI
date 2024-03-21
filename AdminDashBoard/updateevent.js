@@ -1,4 +1,7 @@
-
+const myformvalue = document.querySelector('#myform');
+myformvalue.addEventListener('submit', (e) => {
+  e.preventDefault();
+});
 function fetchEventById(eventId) {
   fetch(`https://localhost:44313/api/v1/Event/get/` + window.localStorage.getItem("eventId"),)
     .then(response => {
@@ -19,18 +22,20 @@ function fetchEventById(eventId) {
       console.error('Error fetching event:', error);
     });
 }
-window.onload = fetchEventById;
-const Data = {
-  name: document.getElementById("eventName").value,
-  description: document.getElementById("eventDescription").value,
-  date: document.getElementById("eventDate").value,
-  location: document.getElementById("eventLocation").value,
-  price: document.getElementById("eventPrice").value,
-  totaltickets: document.getElementById("TotalTickets").value
-};
+
+
 var update = () => {
+  const Data = {
+    id: window.localStorage.getItem("eventId"),
+    name: document.getElementById("eventName").value,
+    description: document.getElementById("eventDescription").value,
+    date: document.getElementById("eventDate").value,
+    location: document.getElementById("eventLocation").value,
+    price: document.getElementById("eventPrice").value,
+    totaltickets: document.getElementById("TotalTickets").value
+  };
   console.log("2")
-  fetch('https://localhost:44313/api/v1/Event/update/' + window.localStorage.getItem("eventId"), {
+  fetch('https://localhost:44313/api/v1/Event/update', {
     method: "PUT",
     headers: {
       "content-type": "application/json",
@@ -53,4 +58,4 @@ var update = () => {
       console.log(err);
     });
 }
-
+fetchEventById();
